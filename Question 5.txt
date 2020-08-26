@@ -1,0 +1,13 @@
+A number which is power of 2 in O(1) time complexity is detectable by using binary representation. 
+In binary representation, the number will be power of 2 if only 1 bit set in total, subtracting one will render that bit zero and set all bits to its right to one.
+It follows, that num and num - 1 cannot share any set bits. Thus, num & (num - 1) evaluates to 0.
+If num is not a power of two (and not zero), there are at least two bits set. 
+When subtracting one, only the rightmost set bit is changed and those to its right, it follows, that the other ones will not be affected.
+Thus, num and num - 1 share at most one set bit. We can conclude that num & (num - 1) cannot evaluate to zero for num not zero and not a power of two.
+
+The following show the code to detect whether a number is power of 2 in O(1) time complexity:
+
+int isPowerof2(unsigned int num)
+{
+  return (num != 0) && ((num & (num - 1) == 0);
+}
